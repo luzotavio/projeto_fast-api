@@ -43,7 +43,7 @@ def update_user(
     current_user.username = user.username
     current_user.password = get_password_hash(user.password)
 
-    session.commit
+    session.commit()
     session.refresh(current_user)
 
     return current_user
