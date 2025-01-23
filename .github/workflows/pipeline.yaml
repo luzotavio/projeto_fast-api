@@ -21,6 +21,14 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Instalar Docker
+        uses: docker/setup-buildx-action@v1
+
+      - name: Iniciar Docker
+        run: |
+          Start-Service docker
+          docker info
+
       - name: Instalar Poetry
         run: |
           python -m pip install --upgrade pip
@@ -28,12 +36,6 @@ jobs:
 
       - name: Instalar dependências 
         run: poetry install
-
-      - name: Instalar email-validator
-        run: poetry add pydantic[email]
-
-      - name: Instalar httpx
-        run: poetry add httpx
 
       - name: Executar testes
         run: poetry run task test
