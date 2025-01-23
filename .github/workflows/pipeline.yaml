@@ -3,7 +3,7 @@ on: [push, pull_request]
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
@@ -22,7 +22,9 @@ jobs:
           python-version: '3.12'
 
       - name: Instalar Poetry
-        run: pipx install poetry
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install poetry
 
       - name: Instalar dependências 
         run: poetry install
