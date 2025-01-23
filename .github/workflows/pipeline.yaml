@@ -16,7 +16,7 @@ jobs:
       - name: Copia os arquivos do repositório
         uses: actions/checkout@v3
 
-      - name: Instalar o python
+      - name: Instalar o Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -29,8 +29,12 @@ jobs:
       - name: Instalar dependências 
         run: poetry install
 
+      - name: Instalar email-validator
+        run: poetry add pydantic[email]
+
       - name: Instalar httpx
         run: poetry add httpx
 
       - name: Executar testes
         run: poetry run task test
+
