@@ -28,7 +28,7 @@ jobs:
         run: poetry install
 
       - name: Instalar httpx
-        run: pip install httpx
+        run: poetry add install httpx
 
       - name: Executar testes
         run: poetry run task test
