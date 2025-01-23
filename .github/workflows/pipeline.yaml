@@ -27,5 +27,8 @@ jobs:
       - name: Instalar dependências 
         run: poetry install
 
+      - name: Instalar httpx
+        run: pip install httpx
+
       - name: Executar testes
         run: poetry run task test
