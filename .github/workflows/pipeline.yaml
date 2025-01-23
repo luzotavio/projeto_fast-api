@@ -28,4 +28,10 @@ jobs:
         run: poetry install
 
       - name: Instalar httpx
-        run: poetry
+        run: poetry add httpx
+
+      - name: Instalar email-validator
+        run: poetry add pydantic[email]
+
+      - name: Executar testes
+        run: poetry run task test
