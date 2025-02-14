@@ -70,7 +70,7 @@ def user(session):
 
     session.add(user)
     session.commit()
-    session.refresh(user)
+    session.refresh(user)                                                                        
 
     user.clean_password = pwd
 
